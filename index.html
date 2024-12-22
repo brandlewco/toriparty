@@ -13,7 +13,7 @@
         align-items: center;
         height: 100vh;
         background-color: #f0f0f0;
-        overflow: hidden !important
+        overflow: hidden !important;
       }
 
       .wall {
@@ -41,12 +41,14 @@
 
       .safe-container {
         position: relative;
-        width: 600px;
+        width: 100%;
+        max-width: 600px;
         height: 450px;
         display: flex;
         justify-content: center;
         align-items: center;
         perspective: 800px;
+        margin: 0 25px;
       }
 
       .safe {
@@ -95,7 +97,7 @@
       }
 
       .safe-door-open {
-        transform: rotateY(-110deg);
+        transform: rotateY(-160deg);
       }
 
       /* Safe Interior */
@@ -116,35 +118,34 @@
 
       .note {
         background: url(paper.png) no-repeat center / cover;
-    background-size: cover;
-    padding: 30px 50px;
-    font-family: "Patrick Hand", cursive, Arial;
-    font-size: 18px;
-    text-align: center;
-    line-height: 1.5;
-    border: none;
-    position: relative;
-    z-index: 2;
-    width: 280px;
-    height: auto;
-    margin: 20px auto;
-    transform: rotate(-1deg);
-    filter: drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.7));
-    animation: fadeIn 1s ease-in;
-}
+        background-size: cover;
+        padding: 60px 25px;
+        font-family: "Patrick Hand", cursive, Arial;
+        font-size: 18px;
+        text-align: center;
+        line-height: 1.5;
+        border: none;
+        position: relative;
+        z-index: 2;
+        width: 280px;
+        height: auto;
+        margin: 20px auto;
+        transform: rotate(-1deg);
+        filter: drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.7));
+        animation: fadeIn 1s ease-in;
+      }
 
-/* Animation for Note Appearance */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.95) rotate(-2deg);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1) rotate(-1deg);
-    }
-}
-
+      /* Animation for Note Appearance */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.95) rotate(-2deg);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1) rotate(-1deg);
+        }
+      }
 
       .pinpad {
         position: absolute;
@@ -197,25 +198,25 @@
         background: #666;
       }
       .jem {
-    position: absolute;
-    bottom: 0px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 500px; /* Adjust the size of the gem */
-    height: auto;
-    animation: shimmer 2s infinite; /* Optional shimmer effect */
-}
+        position: absolute;
+        bottom: 0px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 500px; /* Adjust the size of the gem */
+        height: auto;
+        animation: shimmer 2s infinite; /* Optional shimmer effect */
+      }
 
-/* Optional shimmer effect */
-@keyframes shimmer {
-    0%, 100% {
-        filter: brightness(1);
-    }
-    50% {
-        filter: brightness(1.25);
-    }
-}
-
+      /* Optional shimmer effect */
+      @keyframes shimmer {
+        0%,
+        100% {
+          filter: brightness(1);
+        }
+        50% {
+          filter: brightness(1.25);
+        }
+      }
 
       .hidden {
         display: none;
@@ -248,14 +249,13 @@
           <div class="safe-interior" id="safeInterior">
             <div class="note">
               Agents, your mission, should you choose to accept it: Join us on
-              12/31/24 at 8 PM for a covert celebration like no other.<br />Disguises
+              New Years Eve at 8 PM for a covert celebration like no other.<br />Disguises
               are mandatory—come as your favorite spy or create a secret
               identity of your own.<br />The clock is ticking. Will you uncover
               the mystery waiting for you?<br /><br />324. E. Cornell Dr. Tempe,
               AZ 85283
             </div>
             <img src="jems.png" alt="Gem" class="jem" />
-
           </div>
         </div>
       </div>
@@ -267,7 +267,7 @@
       const safeInterior = document.getElementById("safeInterior");
       const pinpad = document.getElementById("pinpad");
 
-      const correctPassword = "010194";
+      const correctPassword = "0101";
       let enteredPin = "";
 
       document.querySelectorAll(".pin-button").forEach((button) => {
